@@ -30,7 +30,6 @@ abstract class DAO
     protected function createQuery($sql, $params = null)
     {
         $result = $this->checkConnection()->prepare($sql);
-        $result->setFetchMode(PDO::FETCH_CLASS, static::class);
         $result->execute($params);
         return $result;
     }

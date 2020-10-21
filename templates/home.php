@@ -15,16 +15,16 @@
     </div>
     <?php
 
-        while ($article=$articles->fetch()) {
+        foreach ($articles as $article) {
             ?>
     <div>
         <h2><a
-                href="../public/index.php?route=article&articleId=<?= $article->id ; ?>"><?= $article->title ; ?></a></h2>
-        <p><?= $article->content ; ?>
+                href="../public/index.php?route=article&articleId=<?= $article->getId() ; ?>"><?= $article->getTitle() ; ?></a></h2>
+        <p><?= $article->getContent() ; ?>
         </p>
-        <p><?= $article->author ; ?>
+        <p>Auteur : <?= $article->getAuthor() ; ?>
         </p>
-        <p><?= $article->createdAt ; ?>
+        <p>Crée le : <?= $article->getCreatedAt() ; ?>
         </p>
     </div>
     <?php
