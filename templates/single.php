@@ -1,7 +1,5 @@
 <?php
 
-require "../vendor/autoload.php";
-
     use \App\src\DAO\ArticleDAO;
     use \App\src\DAO\CommentDAO;
 
@@ -23,8 +21,8 @@ require "../vendor/autoload.php";
     </div>
     <?php
         $a_m = new ArticleDAO();
-        $articles = $a_m->getArticle($_GET['id']);
-        $a_m=$articles->fetch()
+        $articles = $a_m->getArticle($_GET['articleId']);
+        $a_m=$articles->fetch();
             ?>
     <div>
         <h2><?= $a_m->title ; ?>
@@ -39,12 +37,12 @@ require "../vendor/autoload.php";
     <?php
         $articles->closeCursor();
     ?>
-    <a href="home.php">Retour à l'accueil</a>
+    <a href="../public/index.php">Retour à l'accueil</a>
     <div id="comments">
         <h3>Commentaires</h3>
         <?php
             $comment = new CommentDAO();
-            $comments = $comment->getCommentsFromArticle($_GET['id']);
+            $comments = $comment->getCommentsFromArticle($_GET['articleId']);
             while ($comment = $comments->fetch()) {
                 ?>
         <h4><?= $comment->id_user ?>

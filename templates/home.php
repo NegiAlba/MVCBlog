@@ -1,7 +1,5 @@
 <?php
 
-require "../vendor/autoload.php";
-
     use \App\src\DAO\ArticleDAO;
 
     ?>
@@ -26,7 +24,8 @@ require "../vendor/autoload.php";
         while ($a_m=$articles->fetch()) {
             ?>
     <div>
-        <h2><a href="single.php?id=<?= $a_m->id ; ?>"><?= $a_m->title ; ?></a></h2>
+        <h2><a
+                href="../public/index.php?route=article&articleId=<?= $a_m->id ; ?>"><?= $a_m->title ; ?></a></h2>
         <p><?= $a_m->content ; ?>
         </p>
         <p><?= $a_m->author ; ?>
