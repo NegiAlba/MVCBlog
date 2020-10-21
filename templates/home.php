@@ -1,8 +1,3 @@
-<?php
-
-    use \App\src\DAO\ArticleDAO;
-
-    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,18 +14,17 @@
         <p>En construction</p>
     </div>
     <?php
-        $a_m = new ArticleDAO();
-        $articles = $a_m->getArticles();
-        while ($a_m=$articles->fetch()) {
+
+        while ($article=$articles->fetch()) {
             ?>
     <div>
         <h2><a
-                href="../public/index.php?route=article&articleId=<?= $a_m->id ; ?>"><?= $a_m->title ; ?></a></h2>
-        <p><?= $a_m->content ; ?>
+                href="../public/index.php?route=article&articleId=<?= $article->id ; ?>"><?= $article->title ; ?></a></h2>
+        <p><?= $article->content ; ?>
         </p>
-        <p><?= $a_m->author ; ?>
+        <p><?= $article->author ; ?>
         </p>
-        <p><?= $a_m->createdAt ; ?>
+        <p><?= $article->createdAt ; ?>
         </p>
     </div>
     <?php

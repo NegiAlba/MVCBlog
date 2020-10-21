@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Environnement de dev
+ * Environnement de production
  */
 
     const HOST = 'localhost';

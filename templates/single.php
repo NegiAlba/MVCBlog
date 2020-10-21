@@ -20,18 +20,16 @@
         <p>En construction</p>
     </div>
     <?php
-        $a_m = new ArticleDAO();
-        $articles = $a_m->getArticle($_GET['articleId']);
-        $a_m=$articles->fetch();
+        $article=$articles->fetch();
             ?>
     <div>
-        <h2><?= $a_m->title ; ?>
+        <h2><?= $article->title ; ?>
         </h2>
-        <p><?= $a_m->content ; ?>
+        <p><?= $article->content ; ?>
         </p>
-        <p><?= $a_m->author ; ?>
+        <p><?= $article->author ; ?>
         </p>
-        <p><?= $a_m->createdAt ; ?>
+        <p><?= $article->createdAt ; ?>
         </p>
     </div>
     <?php
@@ -41,8 +39,6 @@
     <div id="comments">
         <h3>Commentaires</h3>
         <?php
-            $comment = new CommentDAO();
-            $comments = $comment->getCommentsFromArticle($_GET['articleId']);
             while ($comment = $comments->fetch()) {
                 ?>
         <h4><?= $comment->id_user ?>
